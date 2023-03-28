@@ -1,0 +1,43 @@
+import javax.swing.JTextArea;
+import java.util.Random;
+
+public class Runner extends AthleticalRaceInterface {
+    
+    private String name;
+    private int speed;
+   private boolean completed;
+
+
+    public Runner(JTextArea nombresRegistrados) {
+        this.name = nombresRegistrados.getText();
+        Random random = new Random();
+        this.speed = random.nextInt(31);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+    
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    
+    }
+
+
+    public boolean isCompleted() {
+        return completed;
+    }
+    
+}

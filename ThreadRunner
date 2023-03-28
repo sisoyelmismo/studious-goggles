@@ -1,0 +1,29 @@
+import javax.swing.JTextArea;
+
+public class ThreadRunner extends Thread {
+
+    private String name;
+    private int speed;
+    private JTextArea resultTextArea;
+    private Runner runner;
+
+    public ThreadRunner(Runner runner, JTextArea resultTextArea) {
+        this.name = runner.getName();
+        this.speed = runner.getSpeed();
+        this.runner = runner;
+        this.resultTextArea = resultTextArea;
+    }
+
+    public void run() {
+        try {
+            Thread.sleep(speed * 1000);
+            resultTextArea.append(name + " ha completado la carrera.\n");
+
+            // Agregar al corredor a la lista de completados
+            runner.setCompleted(true);
+        } catch (InterruptedException e) {
+            System.out.println("Interrupción del hilo: " + e.getMessage());
+        }
+    }
+}
+
